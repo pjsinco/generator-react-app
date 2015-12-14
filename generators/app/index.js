@@ -34,11 +34,16 @@ var ReactApp = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    scaffoldFolders: function() {
+    scaffoldDefault: function() {
+        var context = {
+            appName: this.appName
+        };
+
         mkdirp.sync('./src/scripts');
         mkdirp.sync('./src/img');
         mkdirp.sync('./src/scripts/utils');
         mkdirp.sync('./src/scripts/components');
+        mkdirp.sync('./dist');
 
         this.fs.copy(
             this.templatePath('_main.js'),
@@ -50,16 +55,13 @@ var ReactApp = yeoman.generators.Base.extend({
             this.destinationPath('./src/scripts/components/app.js')
         );
 
-        mkdirp.sync('./src/');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        mkdirp.sync('./src');
-        
-        mkdirp.sync('./dist');
+        this.fs.copy(
+            this.templatePath('_gulpfile.js'),
+            this.destinationPath('./gulpfile.js')
+        );
+
+        this.template('_package.json', './package.json', context);
+        this.template('_index.html', './index.html', context);
     },
 
     scaffoldSass: function() {
@@ -77,9 +79,6 @@ var ReactApp = yeoman.generators.Base.extend({
             mkdirp.sync('./src/scripts/actions');
             mkdirp.sync('./src/scripts/stores');
 
-            var context = {
-                appName: this.appName
-            };
 
             this.fs.copy(
                 this.templatePath('_app-constants.js'),

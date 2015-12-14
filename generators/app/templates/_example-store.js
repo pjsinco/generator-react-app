@@ -24,8 +24,12 @@ var ExampleStore = assign({}, EventEmitter.prototype, {
         this.emit(CHANGE);
     },
 
-    getBooks: function() {
-        return _books;
+    getAll: function() {
+        return _things;
+    },
+
+    getThing: function(id) {
+        return _things[id];
     },
 
 });

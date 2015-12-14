@@ -9,6 +9,9 @@ var defaultContent = [
     './src/scripts/main.js',
     './src/scripts/components',
     './src/scripts/components/app.js',
+    './package.json',
+    './gulpfile.js',
+    './index.html',
 ];
 
 var fluxContent = [

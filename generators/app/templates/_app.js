@@ -2,7 +2,6 @@
 
 var React = require('react');
 var ExampleStore = require('../stores/example-store');
-var BookActions = require('../actions/book-action-creators');
 
 var App = React.createClass({
 
