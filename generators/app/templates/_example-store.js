@@ -34,7 +34,7 @@ var ExampleStore = assign({}, EventEmitter.prototype, {
 
 });
 
-module.exports = BookStore;
+module.exports = ExampleStore;
 
 Dispatcher.register(function(action) {
 
