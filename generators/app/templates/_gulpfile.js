@@ -22,6 +22,7 @@ function onError(error) {
 gulp.task('compileSass', function() {
 
     gulp.src(['./src/sass/style.scss'])
+        .pipe(plumber({ errorHandler: onError }))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
