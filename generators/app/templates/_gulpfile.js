@@ -51,8 +51,9 @@ gulp.task('scripts', function() {
 
     b.transform('babelify', { presets: ['react'] })
         .bundle()
-        .on('error', notify.onError(function(error) {
-            return error.message;
+        .on('error', notify.onError({
+            message: 'Error: <%= error.message %>',
+            sound: 'Pop'
         }))
         .pipe(source('main.js'))
         .pipe(rename('bundle.js'))
