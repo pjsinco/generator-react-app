@@ -56,6 +56,11 @@ var ReactApp = yeoman.generators.Base.extend({
         );
 
         this.fs.copy(
+            this.templatePath('_gitignore.js'),
+            this.destinationPath('./.gitignore')
+        );
+
+        this.fs.copy(
             this.templatePath('_gulpfile.js'),
             this.destinationPath('./gulpfile.js')
         );
