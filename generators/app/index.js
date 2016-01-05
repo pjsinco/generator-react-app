@@ -90,6 +90,16 @@ var ReactApp = yeoman.generators.Base.extend({
             this.destinationPath('./src/sass/modules/index.scss')
         );
 
+        this.fs.copy(
+            this.templatePath('_base.scss'),
+            this.destinationPath('./src/sass/base/_base.scss')
+        );
+
+        this.fs.copy(
+            this.templatePath('_variables.scss'),
+            this.destinationPath('./src/sass/utilities/_variables.scss')
+        );
+
         this.template('_package.json', './package.json', context);
         this.template('_index.html', './index.html', context);
     },
