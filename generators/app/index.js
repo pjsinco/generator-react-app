@@ -65,6 +65,11 @@ var ReactApp = yeoman.generators.Base.extend({
             this.destinationPath('./gulpfile.js')
         );
 
+        this.fs.copy(
+            this.templatePath('_style.scss'),
+            this.destinationPath('./src/sass/style.scss')
+        );
+
         this.template('_package.json', './package.json', context);
         this.template('_index.html', './index.html', context);
     },
