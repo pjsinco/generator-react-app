@@ -70,6 +70,26 @@ var ReactApp = yeoman.generators.Base.extend({
             this.destinationPath('./src/sass/style.scss')
         );
 
+        this.fs.copy(
+            this.templatePath('_base_index.scss'),
+            this.destinationPath('./src/sass/base/index.scss')
+        );
+
+        this.fs.copy(
+            this.templatePath('_layout_index.scss'),
+            this.destinationPath('./src/sass/layout/index.scss')
+        );
+
+        this.fs.copy(
+            this.templatePath('_utilities_index.scss'),
+            this.destinationPath('./src/sass/utilities/index.scss')
+        );
+
+        this.fs.copy(
+            this.templatePath('_modules_index.scss'),
+            this.destinationPath('./src/sass/modules/index.scss')
+        );
+
         this.template('_package.json', './package.json', context);
         this.template('_index.html', './index.html', context);
     },
